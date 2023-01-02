@@ -1,0 +1,15 @@
+- name: Refresh repositories
+  ansible.builtin.import_playbook:
+    apt.yml
+
+- name: Install QEMU Guest Agent for Proxmox
+  ansible.builtin.import_playbook:
+    qemu-guest-agent.yml
+
+- name: Install zsh
+  ansible.builtin.import_playbook:
+    zsh.yml
+
+- name: Install Docker
+  ansible.builtin.import_playbook:
+    docker.yml

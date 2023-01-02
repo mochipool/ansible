@@ -1,0 +1,39 @@
+- name: Install Docker
+  hosts: "*"
+  vars:
+    docker_group: "docker"
+    remote_user: "miso"
+  become: true
+  tasks:
+    - name: Add Docker GPG apt Key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      ansible.builtin.apt:
+        name: docker-ce
+        state: present
+        update_cache: true
+
+    - name: Install Docker Module for Python
+      ansible.builtin.pip:
+        name: docker
+
+    # sudo groupadd docker
+    - name: Create "docker" group
+      ansible.builtin.group:
+        name: "{{ docker_group }}"
+        state: present
+
+    # sudo usermod -aG docker root
+    - name: Add user to "docker" group
+      ansible.builtin.user:
+        name: "{{ remote_user }}"
+        groups: "{{ docker_group }}"
+        append: true
