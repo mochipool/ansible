@@ -15,9 +15,9 @@
 
       - name: Save Snapshot
         ansible.builtin.get_url:
-            url: https://downloads.csnapshots.io/snapshots/mainnet/{{ snapshot_state.stdout }}
+            url: https://downloads.csnapshots.io/snapshots/mainnet/{{ snapshot_state }}
             mode: 0644
-            dest: ~/{{ snapshot_state.stdout }}
+            dest: ~/{{ snapshot_state }}
 
     # Alternative way to do this (does not require Ansible Galaxy Community.General)
     # - name: Query Snapshot
