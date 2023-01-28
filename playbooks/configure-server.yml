@@ -13,3 +13,7 @@
 - name: Install Docker
   ansible.builtin.import_playbook:
     docker.yml
+
+- name: Configure Cardano Files
+  ansible.builtin.import_playbook:
+    cardano.yml

@@ -1,0 +1,28 @@
+- name: Configure Cardano Files
+  hosts: "*"
+  vars:
+    network: "mainnet"
+  tasks:
+    - name: Create Directory Structure
+      ansible.builtin.file:
+        path: "~/cardano/{{ item }}"
+        recurse: true
+        state: directory
+      with_items:
+        - "data/{{ network }}/db"
+        - "config/{{ network }}"
+        - "sockets"
+
+    - name: Download Configs
+      ansible.builtin.get_url:
+        url: https://book.world.dev.cardano.org/environments/{{ network }}/{{ item }}
+        mode: 0644
+        dest: ~/cardano/config/{{ network }}/{{ item }}
+      with_items:
+        - "config.json"
+        - "db-sync-config.json"
+        - "submit-api-config.json"
+        - "topology.json"
+        - "byron-genesis.json"
+        - "shelley-genesis.json"
+        - "alonzo-genesis.json"
