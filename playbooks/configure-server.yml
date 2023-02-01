@@ -17,3 +17,10 @@
 - name: Configure Cardano Files
   ansible.builtin.import_playbook:
     cardano.yml
+
+- name: Reboot Machine
+  become: true
+  tasks:
+    - name: Reboot the machine (Wait for 5 min)
+      ansible.builtin.reboot:
+        reboot_timeout: 300
