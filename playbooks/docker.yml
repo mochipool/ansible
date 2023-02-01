@@ -2,7 +2,6 @@
   hosts: "*"
   vars:
     docker_group: "docker"
-    remote_user: "matcha"
     docker_compose_url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
   become: true
   tasks:
@@ -35,7 +34,7 @@
     # sudo usermod -aG docker root
     - name: Add user to "docker" group
       ansible.builtin.user:
-        name: "{{ remote_user }}"
+        name: "{{ ansible_user_id }}"
         groups: "{{ docker_group }}"
         append: true
 

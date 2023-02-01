@@ -13,4 +13,4 @@
         name: gantsign.oh-my-zsh
       vars:
         users:
-          - username: "matcha"
+          - username: "{{ ansible_user_id }}"
