@@ -1,5 +1,5 @@
 ---
-- name: Install qemu-guest-agent
+- name: Install QEMU
   ansible.builtin.apt:
     name: qemu-guest-agent
     state: present
@@ -7,3 +7,7 @@
   become: true
   notify:
     - Start QEMU
+
+- name: Install QEMU
+  ansible.builtin.include_tasks: 
+    reboot.yml

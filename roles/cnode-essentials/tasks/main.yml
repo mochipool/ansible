@@ -1,16 +1,8 @@
 ---
 - name: Refresh Repos
-  ansible.builtin.include_tasks: 
-    apt.yml
-
-- name: Install QEMU Guest Agent for Proxmox
   ansible.builtin.include_tasks:
-    qemu.yml
+    apt.yml
 
 - name: Configure Cardano Files
   ansible.builtin.include_tasks:
     cardano.yml
-
-- name: Reboot
-  ansible.builtin.include_tasks:
-    reboot.yml

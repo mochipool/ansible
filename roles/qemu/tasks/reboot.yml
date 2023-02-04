@@ -2,6 +2,8 @@
 - name: Reboot the machine (Wait for 5 min)
   ansible.builtin.reboot:
     reboot_timeout: 300
+  become: true
+
 - name: Success Message
   ansible.builtin.debug:
     msg: "All machines successfully rebooted."

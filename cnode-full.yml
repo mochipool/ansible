@@ -1,0 +1,9 @@
+---
+- name: Fully Configure Cardano Machine
+  hosts: yyz
+  roles:
+    - cnode-essentials
+    - docker
+    - qemu
+    - zsh
+    - wireguard-router
