@@ -1,0 +1,5 @@
+---
+- name: Configure Docker
+  hosts: tt
+  roles:
+    - docker

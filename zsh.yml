@@ -1,0 +1,5 @@
+---
+- name: Install ZSH
+  hosts: tt
+  roles:
+    - zsh

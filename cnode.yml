@@ -1,0 +1,5 @@
+---
+- name: Configure Cardano Machine
+  hosts: tt
+  roles:
+    - cnode-essentials

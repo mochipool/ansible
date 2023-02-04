@@ -1,0 +1,7 @@
+---
+- name: Enable Wireguard Routes
+  hosts: yyz
+  become: true
+  become_user: root
+  roles:
+    - wireguard-router

@@ -1,0 +1,6 @@
+---
+- name: Enable Routes
+  ansible.builtin.systemd:
+    name: iproute
+    state: started
+    enabled: true

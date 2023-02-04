@@ -1,0 +1,10 @@
+---
+- name: Copy systemd service file to server
+  ansible.builtin.copy:
+    src: iproute.service
+    dest: /lib/systemd/system
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Enable Routes

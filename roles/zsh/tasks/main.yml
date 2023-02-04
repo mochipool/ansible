@@ -1,0 +1,14 @@
+---
+- name: Install zsh
+  ansible.builtin.apt:
+    name: zsh
+    state: present
+    update_cache: true
+  become: true
+
+- name: Install oh-my-zsh
+  ansible.builtin.include_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    users:
+      - username: "{{ install_user }}"
