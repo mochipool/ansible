@@ -8,6 +8,6 @@
   notify:
     - Start QEMU
 
-- name: Install QEMU
+- name: Reboot Machine
   ansible.builtin.include_tasks: 
     reboot.yml
