@@ -1,5 +1,6 @@
 ---
 - name: Run Portainer Agent Container
+  become: true
   community.docker.docker_container:
     name: portainer_agent
     image: portainer/agent:2.16.2

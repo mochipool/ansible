@@ -1,8 +1,8 @@
 ---
 - name: Install Docker
-  ansible.builtin.include_tasks: 
+  ansible.builtin.include_tasks:
     docker.yml
 
 - name: Configure Portainer Agent
-  ansible.builtin.include_tasks: 
+  ansible.builtin.include_tasks:
     portainer.yml
